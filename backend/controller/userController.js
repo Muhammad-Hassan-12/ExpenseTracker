@@ -58,4 +58,4 @@ const generateToken = (id) => {
     });
   };
 
-module.exports = { registerUser, loginUser, getME };
+module.exports = { registerUser, loginUser };
