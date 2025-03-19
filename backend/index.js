@@ -4,8 +4,9 @@ const cors = require("cors");
 const app = express();
 
 const port = process.env.PORT || 3000;
+
 const connectDB = require("./config/db");
-// connectDB();
+
 
 app.use(
   cors({
@@ -20,6 +21,7 @@ app.use(express.urlencoded({ extended: true }));
 
 app.use("/api/expense", require("./routes/expenseRoutes"));
 app.use("/api/user", require("./routes/userRoutes"));
+
 
 // app.listen(port, async () => {
 //   console.log(`Server is running on port ${port}`);
@@ -37,4 +39,3 @@ connectDB().then(() => {
   app.listen(port, () => {
     console.log(`Server is running on port ${port}`);
   });
-});

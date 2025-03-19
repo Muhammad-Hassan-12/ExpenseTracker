@@ -7,6 +7,7 @@ const getExpenses = async (req, res) => {
 };
 
 const addExpense = async (req, res) => {
+
   const { title, amount, category, date } = req.body;
 
   if (!title || !amount || !category || !date) {
@@ -53,6 +54,7 @@ const updateExpense = async (req, res) => {
 };
 
 const deleteExpense = async (req, res) => {
+
   const expense = await Expense.findById(req.params.id);
   if (!expense) return res.status(404).json({ message: "Expense not found" });
 
