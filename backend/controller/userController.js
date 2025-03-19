@@ -51,17 +51,10 @@ const loginUser = async (req, res) => {
     }
 }
 
-const getME = async (req, res) => {
-    const { _id, name, email } = req.user; 
-    res.json({
-        id : _id,
-        name,
-        email,
-    });
-}
-
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '30d' });
-}
+    return jwt.sign({ id }, process.env.JWT_SECRET ?? "12345", {
+      expiresIn: "30d",
+    });
+  };
 
 module.exports = { registerUser, loginUser, getME };
